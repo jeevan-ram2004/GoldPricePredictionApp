@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gold Price Predictor</title>
+
+  <style>
+    /* ===== GENERAL PAGE STYLES ===== */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
+      color: #222;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #ffffffdd;
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 600px;
+      padding: 40px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-5px);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 2.2rem;
+      text-shadow: 1px 1px 2px rgba(255, 215, 0, 0.6);
+    }
+
+    p.subtitle {
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    /* ===== FORM STYLING ===== */
+    form {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    label {
+      font-weight: 600;
+      color: #333;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus {
+      border-color: #FFB300;
+      box-shadow: 0 0 8px rgba(255, 179, 0, 0.6);
+      outline: none;
+    }
+
+    /* ===== BUTTON ===== */
+    button {
+      grid-column: span 2;
+      background: linear-gradient(45deg, #FFB300, #FF8C00);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 15px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: linear-gradient(45deg, #FFD700, #FFB300);
+      transform: scale(1.03);
+    }
+
+    /* ===== RESULT BOX ===== */
+    .result {
+      margin-top: 30px;
+      background: #FFF5E1;
+      border-left: 5px solid #FFB300;
+      padding: 15px;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      .container {
+        padding: 25px;
+      }
+      /* Ensure button still fits */
+      button { grid-column: span 1; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🏆 Gold Price Predictor</h1>
+    <p class="subtitle">Enter the feature values below to estimate the gold price.</p>
+
+    <form id="predictForm">
+      <div>
+        <label for="spx">SPX (S&P 500 Index)</label>
+        <input type="number" id="spx" name="spx" value="4000" step="10" required />
+      </div>
+
+      <div>
+        <label for="uso">USO (Crude Oil ETF)</label>
+        <input type="number" id="uso" name="uso" value="70" step="1" required />
+      </div>
+
+      <div>
+        <label for="slv">SLV (Silver ETF)</label>
+        <input type="number" id="slv" name="slv" value="25" step="0.5" required />
+      </div>
+
+      <div>
+        <label for="eurusd">EUR/USD Exchange Rate</label>
+        <input type="number" id="eurusd" name="eurusd" value="1.10" step="0.01" required />
+      </div>
+
+      <button type="submit">🔮 Predict Gold Price</button>
+    </form>
+
+    <div class="result" id="resultBox">Predicted Gold Price: —</div>
+
+    <footer>© 2025 Gold Price Predictor | Designed with 💛</footer>
+  </div>
+
+  <script>
+    // Simple JavaScript to simulate prediction (replace with real model later)
+    document.getElementById("predictForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const spx = parseFloat(document.getElementById("spx").value);
+      const uso = parseFloat(document.getElementById("uso").value);
+      const slv = parseFloat(document.getElementById("slv").value);
+      const eurusd = parseFloat(document.getElementById("eurusd").value);
+
+      // Dummy formula for demonstration
+      const predicted = ((spx * 0.1) + (uso * 0.5) + (slv * 2) + (eurusd * 100)) / 10;
+
+      // <-- FIXED: use a quoted string (template literal) here
+  <script>
+  document.getElementById("predictForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const spx = parseFloat(document.getElementById("spx").value);
+    const uso = parseFloat(document.getElementById("uso").value);
+    const slv = parseFloat(document.getElementById("slv").value);
+    const eurusd = parseFloat(document.getElementById("eurusd").value);
+
+    const predicted = ((spx * 0.1) + (uso * 0.5) + (slv * 2) + (eurusd * 100)) / 10;
+
+    // ✅ Use backticks for template string
+    document.getElementById("resultBox").innerText = 
+      `Predicted Gold Price: $$ {predicted.toFixed(2)}`;
+  });
+</script>
+</body>
+</html>
