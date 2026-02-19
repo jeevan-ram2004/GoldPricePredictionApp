@@ -46,7 +46,7 @@ y_pred = model.predict(X_test_scaled)
 r2 = r2_score(y_test, y_pred)
 mse = mean_squared_error(y_test, y_pred)
 
-print(f"\n✅ Model trained successfully!")
+print(f"\n Model trained successfully!")
 print(f"R² Score: {r2:.4f}")
 print(f"MSE: {mse:.2f}")
 
@@ -57,7 +57,7 @@ scaler_path = os.path.join(current_dir, "scaler.pkl")
 joblib.dump(model, model_path)
 joblib.dump(scaler, scaler_path)
 
-print("\n✅ Model and Scaler saved successfully!")
+print("\n Model and Scaler saved successfully!")
 print(f"Model path: {model_path}")
 print(f"Scaler path: {scaler_path}")
 
